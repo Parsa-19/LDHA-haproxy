@@ -1,0 +1,20 @@
+---
+networks:
+  my_custom_ha_network:
+    name: haproxy-net
+    external: true
+
+
+services:
+  hapee:
+    #image: hapee-registry.haproxy.com/haproxy-enterprise:3.0r1
+    image: haproxy
+    ports:
+      - "80:80"
+    volumes:
+      - "./ha:/usr/local/etc/haproxy"
+    networks:
+      - my_custom_ha_network
+
+    container_name:
+        hapee-3.1.2
